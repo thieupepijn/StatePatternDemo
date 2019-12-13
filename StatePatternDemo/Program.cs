@@ -14,12 +14,12 @@ namespace StatePatternDemo
 	{
 		public static void Main(string[] args)
 		{
-
 			Person doug = new Person("Doug");
 			while(true)
 			{
 				Console.WriteLine(doug.GiveInfo());
 				ConsoleKeyInfo keyInfo = Console.ReadKey();
+				Console.WriteLine();
 				
 				if (keyInfo.Key == ConsoleKey.LeftArrow)
 				{

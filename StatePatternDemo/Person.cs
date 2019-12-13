@@ -31,7 +31,7 @@ namespace StatePatternDemo
 		{
 			Name = name;
 			NumberOfSpinnings = 0;
-			Location = new Left(this);
+			SetRandomInitialLocation();
 		}
 
 		public string GiveInfo()
@@ -39,5 +39,18 @@ namespace StatePatternDemo
 			return string.Format("{0} is positioned {1} and has done {2} spinnings", Name, Location.Description(), NumberOfSpinnings);
 		}
 
+		private void SetRandomInitialLocation()
+		{
+			Random random = new Random();
+			
+			switch (random.Next(0, 4))
+			{
+					case 0: Location = new Left(this); break;
+					case 1: Location = new Up(this); break;
+					case 2: Location = new Right(this); break;
+					case 3: Location = new Down(this); break;
+			}		
+		}
+		
 	}
 }

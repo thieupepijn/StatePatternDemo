@@ -18,26 +18,17 @@ namespace StatePatternDemo
 			while(true)
 			{
 				Console.WriteLine(doug.GiveInfo());
-				ConsoleKeyInfo keyInfo = Console.ReadKey();
+				Console.WriteLine("Press '->' (turn clockwise), '<-' (turn anti-clockwise), 'M' (mirror) or any other key to exit");
+				ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 				Console.WriteLine();
 				
-				if (keyInfo.Key == ConsoleKey.LeftArrow)
+				switch (keyInfo.Key)
 				{
-					doug.Location.TurnAntiClockWise();
+						case ConsoleKey.LeftArrow: Console.WriteLine("Turn AntiClockWise"); doug.Location.TurnAntiClockWise(); break;
+						case ConsoleKey.RightArrow: Console.WriteLine("Turn Clockwise"); doug.Location.TurnClockWise(); break;
+						case ConsoleKey.M: Console.WriteLine("Mirror"); doug.Location.Mirror(); break;
+						default: return;
 				}
-				else if (keyInfo.Key == ConsoleKey.RightArrow)
-				{
-					doug.Location.TurnClockWise();
-				}
-				else if (keyInfo.Key == ConsoleKey.M)
-				{
-					doug.Location.Mirror();
-				}
-				else
-				{
-					break;
-				}
-				
 				
 			}
 		}

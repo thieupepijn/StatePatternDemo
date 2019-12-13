@@ -15,10 +15,7 @@ namespace StatePatternDemo
 	/// </summary>
 	public class Person
 	{
-		public string Name
-		{
-			get; set;
-		}
+		private string _name;
 
 		public double NumberOfSpinnings
 		{
@@ -29,14 +26,14 @@ namespace StatePatternDemo
 
 		public Person(string name)
 		{
-			Name = name;
+			_name = name;
 			NumberOfSpinnings = 0;
 			SetRandomInitialLocation();
 		}
 
 		public string GiveInfo()
 		{
-			return string.Format("{0} is positioned {1} and has done {2} spinnings", Name, Location.Description(), NumberOfSpinnings);
+			return string.Format("{0} is positioned {1} and has done {2} spinnings", _name, Location.Description(), NumberOfSpinnings);
 		}
 
 		private void SetRandomInitialLocation()
